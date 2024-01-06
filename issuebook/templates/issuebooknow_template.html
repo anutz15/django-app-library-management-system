@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Issue Book</title>
+    <style>
+      body{
+        background-image: url('/static/images/library.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4; 
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        color: rgb(75,47,42);
+        background-color: 
+        font-size: 60px;
+        border-radius: 5px;
+        text-align:center;
+      }
+      .issuebook {
+          max-width: 600px;
+          background-color: rgba(255,255,255,0.8);
+          margin: 40px auto;
+          padding: 20px;
+          border: 1px solid #ccc;
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+          font-size: 20px;
+      }
+
+
+      form span {
+          display: block;
+          font-size: 1.2em;
+          color: #333;
+          margin-bottom: 10px;
+      }
+
+
+      form input[type="text"],
+      form input[type="password"],
+      form select {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 10px;
+          box-sizing: border-box;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+      }
+
+
+      form input[type="submit"] {
+          background-color: #007bff;
+          color: #fff;
+          padding: 10px 15px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+      }
+
+
+      form input[type="submit"]:hover {
+          background-color: #0056b3;
+      }
+      nav {
+        background-color: #333;
+        overflow: hidden;
+      }
+      nav a {
+          float: left;
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+      }
+
+      nav a:last-child {
+          float: right;
+      }
+      button {
+        background-color: #333;
+        color: white;
+        padding: 9px 15px;
+        border: none;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 15px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+
+    </style>
+</head>
+<body>
+  <nav>
+    <a href="/">HOME</a>
+    <a href="">ABOUT US</a>
+    <a href="/checkduebooks">PAY DUE FEES</a>
+    <a href="/account/logout">LOG OUT</a>
+</nav>
+<div class="issuebook">
+  <form method="post">
+    {% csrf_token %}
+      <h1>FOR BOOK ID: {{bid}}</h1>
+    {{form.as_p}}
+      <input type="submit" value="Issue Book and Generate report"></input>
+     
+  </form>
+  <button onclick="location.href='/'">Back to Catalog</button>
+</div>
+</body>
+</html>

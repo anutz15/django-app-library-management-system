@@ -1,0 +1,10 @@
+{% extends "account.html" %}
+
+{% block content %}
+<!-- Show user profile -->
+<h1>{{ user.username }}</h1>
+<p>{{ user.email }}</p>
+<p>{{ user.first_name }} {{ user.last_name }}</p>
+<p>{{ user.student.roll_no }}</p>
+<p>{{ user.student.branch }}</p>
+{% endblock content %}

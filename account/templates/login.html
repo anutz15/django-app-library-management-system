@@ -1,0 +1,12 @@
+{% extends "account.html" %}
+
+{% block content %}
+<form method="POST">
+    <h1>Welcome to eLibrary</h1>
+    {% csrf_token %}
+    {{ login_form.as_p }}
+    <input type="submit" value="Login">
+    <a onclick="location.href='/account/register'">Register</a>
+</form>
+
+{% endblock content %}

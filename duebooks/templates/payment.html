@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Payment</title>
+	<style>
+		body{
+            background-image: url('/static/images/library.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4; 
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: rgb(123,54,53);
+            background-color: 
+            font-size: 60px;
+            border-radius: 5px;
+            text-align:center;
+        }
+		button {
+            background-color: #007bff;
+            color: white;
+            padding: 9px 15px;
+            border: none;
+            text-align: center;
+            display: flex;
+            font-size: 15px;
+            margin: 50px auto;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+		.card{
+			background-color: rgb(255,255,255,0.8);
+      		max-width: 400px;
+      		margin: 20px auto;
+			padding: 20px;
+			border-radius: 8px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		}
+	</style>
+</head>
+<body>
+	<div class="card">
+	<h1 class="title">LIBRARY FEES </h1>
+
+	<div class="btn_container">
+		<button class="btn" id="pay-btn">PAY</button>
+	</div>
+	</div>
+</body>
+
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+	var options = {
+	key: "{{ razorpay_merchant_key }}",
+	amount: "{{ razorpay_amount }}",
+	currency: "{{ currency }}",
+	name: "Django Innovative",
+	order_id: "{{ razorpay_order_id }}",
+	
+	callback_url: "{{ callback_url }}",
+	};
+
+	var rzp1 = new Razorpay(options);
+	document.getElementById("pay-btn").onclick = function (e) {
+	rzp1.open();
+	e.preventDefault();
+	};
+</script>
+</html>

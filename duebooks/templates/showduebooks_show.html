@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Due Books</title>
+    <style>
+        body{
+            background-image: url('/static/images/library.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4; 
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: rgb(123,54,53);
+            background-color: 
+            font-size: 60px;
+            border-radius: 5px;
+            text-align:center;
+        }
+        .book {
+            background-color: rgba(255, 255, 255, 0.8);
+    
+            border: 1px solid #ccc;
+            padding: 0 60px;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    
+    
+        .book h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+    
+    
+        .book p {
+            color: #333;
+            line-height: 1.4;
+        }
+    
+    
+        .book a {
+            display: inline-block;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            transition: color 0.3s ease; 
+        }
+        
+    
+        .book a:hover {
+            color: #0056b3;
+        }
+    
+        .book-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+    
+    
+        .book-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    
+    
+        .book-table th {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+    
+    
+        .book-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+    
+    
+        .book-table a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+    
+    
+        .book-table a:hover {
+            text-decoration: underline;
+        }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+    
+        nav a:last-child {
+            float: right;
+        }
+        button {
+            background-color: #777;
+            color: white;
+            padding: 9px 15px;
+            border: none;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 15px;
+            margin: 50px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+    
+        nav a:last-child {
+            float: right;
+        }
+    
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">HOME</a>
+        <a href="/about">ABOUT US</a>
+        <a href="/checkduebooks">PAY DUE FEES</a>
+        <a href="/account/logout">LOG OUT</a>
+    </nav>
+    <div class="book">
+        <h1>YOUR DUE BOOKS</h1>
+        <table class='book-table' border="5">
+            <tr>
+                <th>Book ID</th>
+                <th>Copies</th>
+                <th>Reason for Issue</th>
+                <th>Date of Issue</th>
+                <th>Date to Submit</th>
+            </tr>
+        {% for i1,i2,i3,i4,i5 in context %}
+        <tr>
+            <td>{{i1}}</td>
+            <td>{{i2}}</td>
+            <td>{{i3}}</td>
+            <td>{{i4}}</td>
+            <td>{{i5}}</td>
+        </tr>
+
+        {% endfor %}
+        </table>
+        <button onclick="location.href='/howmuch'">PAY DUE FEES</button>
+    </div>
+
+</body>
+</html>

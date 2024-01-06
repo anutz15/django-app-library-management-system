@@ -1,0 +1,5 @@
+if(a>b){
+int c=10;
+}else{
+int d=10;
+}

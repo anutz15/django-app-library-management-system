@@ -1,0 +1,14 @@
+{% extends "account.html" %}
+
+{% block content %}
+<form method="POST">
+    <h1>User Registration</h1>
+    {% csrf_token %}
+    {{ student_form.as_p }}
+    {{ user_form.as_p }}
+    <input type="submit" value="Register">
+</form>
+{% endblock content %}
+
+
+
